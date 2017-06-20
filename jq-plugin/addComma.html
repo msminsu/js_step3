@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3자리 점찍기</title>
+    <style>
+        li{border:1px solid red;height:100px}
+    </style>
+</head>
+<body>
+
+<ul>
+    <li>test001</li>
+    <li>test002</li>
+    <li>test003</li>
+    <li>test004</li>
+    <li>test005</li>
+    <li>test006</li>
+    <li>test007</li>
+</ul>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+    (function($){
+        $.addComma = function(value){
+            var data = value +"";
+            var aryResult = data.split("");
+            var startIndex = aryResult.length-3;
+            for( var i=startIndex; i>0;i-=3){
+                aryResult.splice(i, 0, ",");
+            }
+
+            return aryResult.join("");
+        }
+    })(jQuery);
+    (function($){
+        $.fn.removeAni = function(){
+            this.each(function (index) {
+               $(this).delay(index*1000).animate({height:0},500,function(){
+                 $(this).remove();
+               });
+            });
+
+            return this;
+        }
+    })(jQuery);
+
+    $(document).ready(function(){
+       $('li').removeAni();
+    });
+</script>
+</body>
+</html>
