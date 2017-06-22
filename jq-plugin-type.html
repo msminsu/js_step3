@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    <style>
+    *{margin:0;padding:0;}
+        li{list-style: none;}
+        ul{position:relative}
+        img{position: absolute}
+    </style>
+
+
+</head>
+
+<body>
+<div>
+    <div class="gallery">
+        <img src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0001.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0002.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0003.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0004.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0005.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0006.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0007.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0008.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0009.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0010.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0011.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0012.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0013.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0014.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0015.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0016.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0017.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0018.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0019.jpg"><img
+            src="http://www.exisoftware.com/thumbnail_generator/sample-galleries/basic-web-photo-gallery/thumbs/tn_IMG_0020.jpg">
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+    (function ($) {
+
+
+        function SimpleGallery(selector, count, width, height) {
+            this.$images = null;
+            this.count = count;
+            this.imageWidth = width;
+            this.imageHeight = height;
+
+
+            this.init(selector);
+        }
+
+        SimpleGallery.prototype.init = function (selector) {
+
+            this.$images = $(selector);
+        };
+
+        SimpleGallery.prototype.showGallery = function () {
+
+            var length = this.$images.length;
+
+            for(var i = 0;i<length; i++){
+                var $img = this.$images.eq(i);
+
+                var x= 100+((i%this.count)*this.imageWidth);
+                var y = 100+(parseInt(i/this.count)*this.imageHeight);
+
+                $img.css({left: x, top: y});
+            }
+        };
+
+        $.simpleGalleryDefOptions= {
+            count: 5,
+            imageWidth: 200,
+            imageHeight: 200
+        };
+
+
+        $.fn.simpleGallery = function(options){
+            options = $.extend(null,$.simpleGallerDefOptions,options);
+
+            this.each(function(index){
+
+                var gallery = new SimpleGallery($(this).children('img'), options.count,options.imageWidth,options.imageHeight);
+                gallery.showGallery();
+            });
+        }
+
+    })(jQuery);
+
+
+</script>
+</body>
+</html>
