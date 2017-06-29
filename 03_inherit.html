@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style: none;float:left;padding:20px;border:1px solid red; background: #fff;}
+        li.select{background: tomato}
+        ul{position:relative}
+        img{position: absolute}
+    </style>
+
+
+</head>
+
+<body>
+<div>
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1">tab-menu-01</li>
+        <li class="menuitem2">tab-menu-02</li>
+        <li class="menuitem3">tab-menu-03</li>
+        <li class="menuitem4">tab-menu-04</li>
+        <li class="menuitem5">tab-menu-05</li>
+        <li class="menuitem6">tab-menu-06</li>
+    </ul>
+
+    <ul class="tab-menu" id="tabMenu2">
+        <li class="menuitem1">tab-menu-01</li>
+        <li class="menuitem2">tab-menu-02</li>
+        <li class="menuitem3">tab-menu-03</li>
+        <li class="menuitem4">tab-menu-04</li>
+        <li class="menuitem5">tab-menu-05</li>
+        <li class="menuitem6">tab-menu-06</li>
+    </ul>
+
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+function MyClassA(){
+    this.property1 = 10;
+}
+
+MyClassA.prototype.method1 = function(){
+    console.log('a this.property1 = '+ this.property1);
+};
+MyClassA.prototype.method2 = function(){
+    console.log('이 기능은 MyClassA에 있는 기능입니다.');
+};
+
+function MyClassB(){
+    this.property1= 20;
+}
+
+MyClassB.prototype.method1 = function(){
+    console.log('b this.property1 = '+this.property1);
+};
+
+MyClassB.prototype.method2 = function(){
+    console.log('이 기능은 MyClassB에 있는 기능입니다. ');
+};
+
+var classA = new MyClassA();
+    classA.method1();
+    classA.method2();
+
+var classB = new MyClassB();
+classB.method1();
+classB.method2();
+
+</script>
+</body>
+</html>
