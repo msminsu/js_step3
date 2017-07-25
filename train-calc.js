@@ -37,6 +37,7 @@ Calc.prototype.calc = function(){
             break;
 
     };
+
 };
 
 Calc.prototype.plus = function(a,b){
